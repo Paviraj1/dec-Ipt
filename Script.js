@@ -141,87 +141,213 @@
 
 // Object destraction
 
-var obj1 =[
-{
-    name: "jai",
-    age :20,
-    dep : "IT"
+// var obj1 =[
+// {
+//     name: "jai",
+//     age :20,
+//     dep : "IT"
     
-},
+// },
 
-{
-    name: "vjai",
-    age :20,
-    dep : "IT"
-}
+// {
+//     name: "vjai",
+//     age :20,
+//     dep : "IT"
+// }
 
-]
-var {name,age,dep}=obj1[1]
-console.log(name,age,dep);
+// ]
+// var {name,age,dep}=obj1[1]
+// console.log(name,age,dep);
 
-// foreach
+// // foreach
 
-var arr =["sun","mon","tue","wed"];
-arr.forEach((val,idx,accarr)=>console.log(val,idx,accarr));
+// var arr =["sun","mon","tue","wed"];
+// arr.forEach((val,idx,accarr)=>console.log(val,idx,accarr));
 
-// forin
+// // forin
 
-var obj = {
-name : "Sakthi",
-city : "newyork",
-country : "america"
-}
-for(var x in obj){
+// var obj = {
+// name : "Sakthi",
+// city : "newyork",
+// country : "america"
+// }
+// for(var x in obj){
 
-    console.log(obj[x])
-}
+//     console.log(obj[x])
+// }
 
-var obj5 =[
-    {
-        name : "Sakthi",
-        city : "newyork",
-      country : "america"
-    },
-    {
-        name : "Dhanraj",
-        city : "chennai",
-      country : "India"
-    }
-];
-for(var x in obj5[1]){
-    console.log(x + "<=>" + obj5[1][x]);
-}
+// var obj5 =[
+//     {
+//         name : "Sakthi",
+//         city : "newyork",
+//       country : "america"
+//     },
+//     {
+//         name : "Dhanraj",
+//         city : "chennai",
+//       country : "India"
+//     }
+// ];
+// for(var x in obj5[1]){
+//     console.log(x + "<=>" + obj5[1][x]);
+// }
 
-var obj ={
-    name : "sakthi",
-    age  : 23,
-    details : function() {
-        console.log(this.age);
+// var obj ={
+//     name : "sakthi",
+//     age  : 23,
+//     details : function() {
+//         console.log(this.age);
 
-    }
-}
-obj.details()
+//     }
+// }
+// obj.details()
  
 
-var a="hello"
-var b="dhanraj"
-console.log(a+b+ "how are you?");
+// var a="hello"
+// var b="dhanraj"
+// console.log(a+b+ "how are you?");
 
-console.log(`${a} ${b}  how are you?`); // Templete literal or string literals
+// console.log(`${a} ${b}  how are you?`); // Templete literal or string literals
 
-// settimeout function
-// 1 sec = 1000ms
-setTimeout(() => {
-    console.log("bomb blast");
-}, 5000);
+// // settimeout function
+// // 1 sec = 1000ms
+// setTimeout(() => {
+//     console.log("bomb blast");
+// }, 5000);
 
-// constrctor
+// // constrctor
 
-function Bike(name,model,year) {
-    this.bikename = name
-    this.bikemodel = model
-    this.bikeyear = year
+// function Bike(name,model,year) {
+//     this.bikename = name
+//     this.bikemodel = model
+//     this.bikeyear = year
+    
+// }
+// const details = new Bike ("yamaha","RX 100", 2000)
+// console.log(details);
+
+class student{
+constructor(name,id,age,grade){
+    this.name=name,
+    this.id=id
+    this.age=age
+    this.grade=grade
+}
+details(){
+console.log('name: ${this.name}');
+console.log('id: ${this.id}');
+console.log('age: ${this.age}');
+console.log('grade: ${this.grade}');}
+}
+const stu1 = new student ("dhanraj",1,15,"A");
+const stu2 = new student ("raj",1,15,"D");
+const stu3 = new student ("Atchu",1,15,"S");
+const stu4 = new student ("dharun",1,15,"A");
+
+
+console.log(stu1,stu2,stu3,stu4);
+console.log(stu2);
+
+
+function wakeup() {
+return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+        resolve("wakup at 5 AM")
+    }, 3000);
+})
     
 }
-const details = new Bike ("yamaha","RX 100", 2000)
-console.log(details);
+
+function gym() {
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve("Attend the gym")
+        }, 4000);
+    })
+        
+    }
+    function office() {
+        return new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve("Go to the office")
+            }, 2000);
+        })
+            
+        }
+        wakeup().then(value=>{console.log(value);return gym()})
+        .then(value2=>{console.log(value2);return gym()})
+        .then(value3=>{console.log(value3);console.log("daily routine finished")})
+
+// .catch/reject
+        function watercan() {
+            return new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    const water = true
+                    if(water){
+                        resolve("water can filled")
+                    }else {
+                        reject("water can empty")
+                    }
+                    resolve("wakup at 5 AM")
+                }, 3000);
+            })
+                
+            }
+            
+            function room() {
+                return new Promise((resolve,reject)=>{
+                    setTimeout(() => {
+                        const rm = true
+                    if(water){
+                        resolve("water can filled")
+                    }else {
+                        reject("water can empty")
+                    }
+                    resolve("wakup at 5 AM")
+                        resolve("Attend the gym")
+                    }, 4000);
+                })
+                    
+                }
+                function office() {
+                    return new Promise((resolve,reject)=>{
+                        setTimeout(() => {
+                            if(water){
+                                resolve("water can filled")
+                            }else {
+                                reject("water can empty")
+                            }
+                            resolve("wakup at 5 AM")
+                                resolve("Attend the gym")
+                            resolve("Go to the office")
+                        }, 2000);
+                    })
+                        
+                    // }
+                    // watercan().then(value=>{console.log(value);return gym()})
+                    // .then(value2=>{console.log(value2);return gym()})
+                    // .catch(err=.{console.log(err)})
+
+
+                    // async function work ()
+
+                    // inheritance
+
+                    class parent {
+                       house() {
+                        console.log("beach house");
+                       }
+                        
+                    }
+                    
+
+                    class child extends parent {
+                        toy(){
+                            console.log("car toy")
+                        }
+                    }
+                }
+                    var c = new child();
+                    c.toy();
+                    c.house();
+                
