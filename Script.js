@@ -350,4 +350,7 @@ function gym() {
                     var c = new child();
                     c.toy();
                     c.house();
+
+
+jbadjbx lsanksnkns;knskskss
                 
